@@ -1,0 +1,49 @@
+'''Nacrtati algoritam i napisati funkciju za nalaženje srednje vrednosti članova celobrojne matrice
+proizvoljnih dimenzija čiji su indeksi takvi da im je zbir jednak parametru k, gde je k parametar
+funkcija. Napisati i glavni program koji će učitati matricu, učitati parametar, pozvati funkciju i
+štampati dobijenu srednju vrednost.'''
+#Ognjen Jovanovic Copyright ATTI & ACDBS(c)
+#datum: 30/11/2023
+
+def nadji_srednju_vrednost_matrice(matrica, k):
+    suma = 0
+    brojac = 0
+    for i in range(len(matrica)):
+        for j in range(len(matrica[i])):
+            if i + j == k:
+                suma += matrica[i][j]
+                brojac += 1
+    if brojac != 0:
+        srednja_vrednost = suma / brojac
+        return srednja_vrednost
+    else:
+        return None #none ne vraca nikakvu f-ju
+
+#glavni deo programa
+
+redovi = int(input("Unesi broj redova matrice: "))
+kolone = int(input("Unesi broj kolona matrice: "))
+
+matrica = []
+for i in range(redovi):
+    red = []
+    for j in range(kolone):
+        element = int(input(f"Unesi element matrice na poziciji ({i}, {j}): "))
+        red.append(element)
+    matrica.append(red)
+
+k = int(input("Unesi vrednost parametra k: "))
+
+srednja_vrednost = nadji_srednju_vrednost_matrice(matrica, k)
+if srednja_vrednost is not None: 
+    print("Srednja vrednost članova matrice sa zadovoljenim uslovom je:", srednja_vrednost)
+    
+#kako testirati program ? 
+#Jedan primer: Ovaj program će kreirati matricu na primer 3x3 sa elementima od 1 do 9. Zatim parametar k je postavljen na 2. Nakon unosa matrice i parametra, program će izračunati srednju vrednost članova matrice sa zadovoljenim uslovom i ispisati je.
+
+
+
+
+
+
+
